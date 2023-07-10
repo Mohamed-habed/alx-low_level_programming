@@ -1,58 +1,22 @@
-#include <stdio.h>
-		
-#include <stdlib.h>
-		
 #include "main.h"
-		
+
 /**
-		
- * _strdup - duplicate to new memory space location
-		
- * @str: char
-		
- * Return: 0
-		
+ * print_array - Prints n elements of an array of integers
+ *
+ * @a: Array of integers
+ * @n: Number of elements to be printed
+ *
+ * Return: void
  */
-		
-char *_strdup(char *str)
-		
+void print_array(int *a, int n)
 {
-		
-	char *aaa;
-		
-	int i, r = 0;
-		
+	int i;
 
-		
-	if (str == NULL)
-		
-		return (NULL);
-		
-	i = 0;
-		
-	while (str[i] != '\0')
-		
-		i++;
-		
-
-		
-	aaa = malloc(sizeof(char) * (i + 1));
-		
-
-		
-	if (aaa == NULL)
-		
-		return (NULL);
-		
-
-		
-	for (r = 0; str[r]; r++)
-		
-		aaa[r] = str[r];
-		
-
-		
-	return (aaa);
-		
+	for (i = 0; i < n; i++)
+	{
+		printf("%d", a[i]);
+		if (i != n - 1)
+			printf(", ");
+	}
+	printf("\n");
 }
-

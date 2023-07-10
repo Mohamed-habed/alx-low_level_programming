@@ -1,42 +1,24 @@
-#include <stdio.h>
-		
-#include <stdlib.h>
-		
 #include "main.h"
-		
+
 /**
-		
- * free_grid - frees 2d array
-		
- * @grid: 2d grid
-		
- * @height: height dimension of grid
-		
- * Description: frees memory of grid
-		
- * Return: nothing
-		
+ * flip_bits - Gets the number of bits needed to flip to change one number
+ * to another.
  *
-		
+ * @n: First number.
+ * @m: Second number.
+ *
+ * Return: Number of bits needed to flip.
  */
-		
-void free_grid(int **grid, int height)
-		
+unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-		
-	int i;
-		
+	unsigned int count = 0;
+	unsigned long int diff = n ^ m;
 
-		
-	for (i = 0; i < height; i++)
-		
+	while (diff > 0)
 	{
-		
-		free(grid[i]);
-		
+		count += (diff & 1);
+		diff >>= 1;
 	}
-		
-	free(grid);
-		
-}
 
+	return (count);
+}

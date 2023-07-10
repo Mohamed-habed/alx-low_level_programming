@@ -1,86 +1,21 @@
 #include "main.h"
-		
-#include <stdlib.h>
-		
+
 /**
-		
- * alloc_grid - nested loop to make grid
-		
- * @width: width input
-		
- * @height: height input
-		
- * Return: pointer to 2 dim. array
-		
+ * print_chessboard - Prints the chessboard.
+ *
+ * @a: 2D array of characters representing the chessboard.
+ *
+ * Return: void
  */
-		
-int **alloc_grid(int width, int height)
-		
+void print_chessboard(char (*a)[8])
 {
-		
-	int **mee;
-		
-	int x, y;
-		
+	int i, j;
 
-		
-	if (width <= 0 || height <= 0)
-		
-		return (NULL);
-		
-
-		
-	mee = malloc(sizeof(int *) * height);
-		
-
-		
-	if (mee == NULL)
-		
-		return (NULL);
-		
-
-		
-	for (x = 0; x < height; x++)
-		
+	for (i = 0; i < 8; i++)
 	{
-		
-		mee[x] = malloc(sizeof(int) * width);
-		
+		for (j = 0; j < 8; j++)
+			_putchar(a[i][j]);
 
-		
-		if (mee[x] == NULL)
-		
-		{
-		
-			for (; x >= 0; x--)
-		
-				free(mee[x]);
-		
-
-		
-			free(mee);
-		
-			return (NULL);
-		
-		}
-		
+		_putchar('\n');
 	}
-		
-
-		
-	for (x = 0; x < height; x++)
-		
-	{
-		
-		for (y = 0; y < width; y++)
-		
-			mee[x][y] = 0;
-		
-	}
-		
-
-		
-	return (mee);
-		
 }
-
