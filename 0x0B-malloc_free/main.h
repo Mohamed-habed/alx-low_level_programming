@@ -1,21 +1,13 @@
-#include "main.h"
+#ifndef MAIN_H
+#define MAIN_H
 
-/**
- * _strlen - Gets the length of a string.
- *
- * @s: Pointer to the string.
- *
- * Return: Length of the string.
- */
-int _strlen(char *s)
-{
-	int len = 0;
+char *create_array(unsigned int size, char c);
+int _putchar(char c);
+char *_strdup(char *str);
+char *str_concat(char *s1, char *s2);
+int **alloc_grid(int width, int height);
+void free_grid(int **grid, int height);
+char *argstostr(int ac, char **av);
 
-	while (*s != '\0')
-	{
-		len++;
-		s++;
-	}
+#endif
 
-	return (len);
-}
