@@ -1,30 +1,43 @@
 #include "main.h"
-
+#include <stdlib.h>
 /**
- * binary_to_uint - Converts a binary number to an unsigned int
- *
- * @b: Pointer to a string of 0 and 1 characters
- *
- * Return: The converted number, or 0 if b is NULL or if b is not a binary
- * number.
+ * str_concat - get ends of input and add together for size
+ * @s1: input one to concat
+ * @s2: input two to concat
+ * Return: concat of s1 and s2
  */
-unsigned int binary_to_uint(const char *b)
+char *str_concat(char *s1, char *s2)
 {
-	unsigned int num = 0;
-	int i;
+	char *conct;
+	int i, ci;
 
-	if (b == NULL)
-		return (0);
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
 
-	for (i = 0; b[i] != '\0'; i++)
+	i = ci = 0;
+	while (s1[i] != '\0')
+		i++;
+	while (s2[ci] != '\0')
+		ci++;
+	conct = malloc(sizeof(char) * (i + ci + 1));
+
+	if (conct == NULL)
+		return (NULL);
+	i = ci = 0;
+	while (s1[i] != '\0')
 	{
-		if (b[i] != '0' && b[i] != '1')
-			return (0);
-
-		num <<= 1;
-		if (b[i] == '1')
-			num += 1;
+		conct[i] = s1[i];
+		i++;
 	}
 
-	return (num);
+	while (s2[ci] != '\0')
+	{
+		conct[i] = s2[ci];
+		i++, ci++;
+	}
+	conct[i] = '\0';
+	return (conct);
 }
+
